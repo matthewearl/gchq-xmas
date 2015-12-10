@@ -20,8 +20,6 @@
 #     OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
 #     USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import pycosat
-
 """
 See the following post for a description of the code:
 
@@ -38,32 +36,10 @@ Modify the variables below to have the script work on other Nonogram puzzles.
 
 """
 
+import pycosat
+
+
 # Problem definition.
-
-WIDTH = 4
-HEIGHT = 2
-
-ROW_RUNS = [
-    [2, 1],
-    [2],
-]
-
-COL_RUNS = [
-    [1],
-    [2],
-    [1],
-    [1],
-]
-
-WIDTH = 2
-HEIGHT = 2
-ROW_RUNS = [[1], [1]]
-COL_RUNS = [[1], [1]]
-
-GIVENS = [
-    (0, 0)
-]
-
 
 WIDTH = 25
 HEIGHT = 25
@@ -334,6 +310,7 @@ def fix_givens():
 
     return clauses
 
+# Put together all the clauses, and then find the results.
 
 all_clauses = (
     row_run_implies_shaded() +
